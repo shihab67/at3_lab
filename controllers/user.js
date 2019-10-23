@@ -18,6 +18,27 @@ router.get('/adduser', function(request, response){
 	response.render("user/adduser");
 });
 
+router.post('/adduser', function(request, response){
+
+	var user = {
+		empName: request.body.empName,
+		compName: request.body.compName,
+		contact: request.body.contact,
+		username: request.body.username,
+		password: request.body.password
+	};
+
+	userModel.insert(user, function(status){
+		
+		if(status){
+			response.redirect('/user/userlist');
+		}else{
+			response.redirect('/user/edit/'+request.params.id);
+		}
+	});
+	
+});
+
 router.get('/userList', function(request, response){
 		
 		userModel.getAll(function(results){

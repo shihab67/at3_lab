@@ -4,7 +4,7 @@ module.exports = {
 
 	getById: function(id, callback){
 
-			var sql = "select * from user where id=?";
+			var sql = "select * from login where id=?";
 			db.getResults(sql, [id], function(result){
 				if(result.length > 0 ){
 					callback(result[0]);
@@ -14,7 +14,7 @@ module.exports = {
 			});
 	},
 	validate: function(user, callback){
-		var sql ="select * from user where username=? and password=?";
+		var sql ="select * from login where username=? and password=?";
 		db.getResults(sql, [user.username, user.password], function(result){
 
 			if(result.length > 0){
@@ -38,20 +38,20 @@ module.exports = {
 	},
 	insert: function(user, callback){
 
-		var sql ="insert into user values('', ?, ?)";
-		db.execute(sql, [user.username, user.password], function(status){
+		var sql ="insert into employee values('', ?, ?, ?, ?, ?)";
+		db.execute(sql, [user.empName, user.compName, user.contact, user.username, user.password], function(status){
 			callback(status);
 		});
 	},
 	update: function(user, callback){
-		var sql ="update user set username=?, password=? where id=?";
+		var sql ="update login set username=?, password=? where id=?";
 	
 		db.execute(sql, [user.username, user.password, user.id], function(status){
 			callback(status);
 		});
 	},
 	delete: function(id, callback){
-		var sql = "delete from user where id=?";
+		var sql = "delete from login where id=?";
 		db.execute(sql, [id], function(status){
 			callback(status);
 		});

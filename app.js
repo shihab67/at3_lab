@@ -27,7 +27,7 @@ app.use('/logout', logout);
 
 //ROUTER
 app.get('/', function(request, response){
-	response.send('index page!');
+	response.render('index page!');
 });
 
 app.get('/test/your/:name/:id', function(request, response){

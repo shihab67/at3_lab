@@ -9,6 +9,9 @@ router.get('/', function(request, response){
 router.post('/', function(request, response){
 	
 	var user = {
+		empName: request.body.empName,
+		compName: request.body.compName,
+		contact: request.body.contact,
 		username: request.body.username,
 		password: request.body.password
 	};
