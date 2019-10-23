@@ -7,6 +7,7 @@ var ejs = require('ejs');
 var login = require('./controllers/login');
 var home = require('./controllers/home');
 var user = require('./controllers/user');
+var employee = require('./controllers/employeeHome');
 var logout = require('./controllers/logout');
 var app = express();
 
@@ -23,6 +24,7 @@ app.use('/login', login);
 app.use('/home', home);
 app.use('/user', user);
 app.use('/logout', logout);
+app.use('/employeeHome', employee);
 
 
 //ROUTER

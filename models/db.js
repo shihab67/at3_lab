@@ -5,7 +5,7 @@ var getConnection = function(callback){
 	  host     : 'localhost',
 	  user     : 'root',
 	  password : '',
-	  database : 'labtask'
+	  database : 'atp3_mid_lab'
 	});
 	 
 	connection.connect(function(err) {

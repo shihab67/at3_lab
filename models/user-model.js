@@ -18,14 +18,19 @@ module.exports = {
 		db.getResults(sql, [user.username, user.password], function(result){
 
 			if(result.length > 0){
-				callback(true);
+				if(result[0].type == 1){
+					callback(1);
+				}
+				if((result[0].type == 2)){
+					callback(2);
+				}
 			}else{
 				callback(false);
 			}
 		});	
 	},
 	getAll: function(callback){
-		var sql = "select * from user";
+		var sql = "select * from employee";
 		
 		db.getResults(sql, [], function(results){
 			
@@ -44,9 +49,9 @@ module.exports = {
 		});
 	},
 	update: function(user, callback){
-		var sql ="update login set username=?, password=? where id=?";
+		var sql ="update employee set emp_name=?, comp_name=?, contact=?, username=?, password=? where id=?";
 	
-		db.execute(sql, [user.username, user.password, user.id], function(status){
+		db.execute(sql, [user.empName, user.compName, user.contact, user.username, user.password, user.id], function(status){
 			callback(status);
 		});
 	},

@@ -18,8 +18,14 @@ router.post('/', function(request, response){
 
 	userModel.validate(user, function(status){
 		if(status){
+			if(status == 1){
 			response.cookie('username', request.body.username);
 			response.redirect('/home');
+			}
+			if(status == 2){
+				response.cookie('username', request.body.username);
+				response.redirect('/employeeHome');
+			}
 		}else{
 			response.send('invalid username/password');		
 		}

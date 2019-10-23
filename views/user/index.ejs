@@ -11,15 +11,21 @@
 	<table border="1">
 		<tr>
 			<td>ID</td>
-			<td>USERNAME</td>
-			<td>PASSWORD</td>
-			<td>ACTION</td>
+			<td>Employee Name</td>
+			<td>Company Name</td>
+			<td>Contact</td>
+			<td>User Name</td>
+			<td>Password</td>
+			<td style="text-align: center;">Operations</td>
 		</tr>
 
 	<% for(var i=0; i < users.length; i++){ %>
 
 		<tr>
 			<td><%= users[i].id %></td>
+			<td><%= users[i].emp_name %></td>
+			<td><%= users[i].comp_name %></td>
+			<td><%= users[i].contact %></td>
 			<td><%= users[i].username %></td>
 			<td><%= users[i].password %></td>
 			<td>

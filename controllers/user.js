@@ -1,4 +1,5 @@
 var express = require('express');
+const notifier = require('node-notifier');
 var userModel = require('./../models/user-model');
 
 var router = express.Router();
@@ -31,9 +32,13 @@ router.post('/adduser', function(request, response){
 	userModel.insert(user, function(status){
 		
 		if(status){
-			response.redirect('/user/userlist');
+			notifier.notify({
+				title: 'Hello',
+				message: 'Employee Added!'
+			  });
+			response.redirect('/home');
 		}else{
-			response.redirect('/user/edit/'+request.params.id);
+			//response.redirect('/user/edit/'+request.params.id);
 		}
 	});
 	
